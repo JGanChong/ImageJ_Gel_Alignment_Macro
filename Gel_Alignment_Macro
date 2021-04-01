@@ -1,0 +1,46 @@
+/* Aligns gel image using user set references (wells, ladders, known product, etc)
+ *  
+ * Macro Instructions:
+ * Use "Multi-Point" tool to click on the different references from left to right. Try to be consistent (eg, always clicking the middle, or top corner, etc).
+ * Run macro.
+ *  
+ * Macro tested with ImageJ 1.53g, Java 1.8.0_172 (64bit) Windows 10
+ * Macro by Johnny Gan Chong email:behappyftw@g.ucla.edu 
+ * April 2021
+ */
+
+//Get Coordinates to align
+Roi.getContainedPoints(xpoints, ypoints);
+makeSelection("polyline", xpoints, ypoints);
+Roi.getContainedPoints(xpoints, ypoints);
+
+//Get image statistics
+Array.getStatistics(ypoints, min, max, average_y, stdDev);
+getDimensions(width, height, channels, slices, frames);
+
+//Align everything before the first point using settings of the first point.
+y_step = ypoints[0] - average_y;
+makeRectangle(0, 0, xpoints[0], height);
+run("Copy");
+Roi.move(0, 0-y_step);
+run("Paste");
+
+//Align all selected points
+for (i = 0; i < xpoints.length; i++) {
+
+	y_step = ypoints[i] - average_y;
+	makeRectangle(round(xpoints[i]), 0, 1, height);
+	run("Copy");
+	Roi.move(xpoints[i], 0-y_step);
+	run("Paste");
+	
+}
+
+//Align everything after the last point using settings of the last point.
+y_step = ypoints[ypoints.length-1] - average_y;
+makeRectangle(round(xpoints[xpoints.length-1])+1, 0, width, height);
+run("Copy");
+Roi.move(round(xpoints[xpoints.length-1])+1, 0-y_step);
+run("Paste");
+
+run("Select None");
