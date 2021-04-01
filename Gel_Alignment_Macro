@@ -44,3 +44,46 @@ Roi.move(round(xpoints[xpoints.length-1])+1, 0-y_step);
 run("Paste");
 
 run("Select None");
+
+DoVert = getBoolean("Do Vertical Alignment?");
+
+if (DoVert == 1) {
+	setTool("multipoint");
+	waitForUser("Please select vertical reference points and then press OK.");
+
+	//Get Coordinates to align
+	Roi.getContainedPoints(xpoints, ypoints);
+	makeSelection("polyline", xpoints, ypoints);
+	Roi.getContainedPoints(xpoints, ypoints);
+
+	Array.getStatistics(xpoints, min, max, average_x, stdDev);
+	//Align everything before the first point using settings of the first point.
+	
+	x_step = xpoints[0] - average_x;
+	makeRectangle(0, 0, width, ypoints[0]);
+	run("Copy");
+	Roi.move(0-x_step, 0);
+	run("Paste");
+	
+	//Align all selected points
+	for (i = 0; i < ypoints.length; i++) {
+	
+		x_step = xpoints[i] - average_x;
+		makeRectangle(0, round(ypoints[i]), width, 1);
+		run("Copy");
+		Roi.move(0-x_step,ypoints[i]);
+		run("Paste");
+		
+	}
+	
+	//Align everything after the last point using settings of the last point.
+	
+	x_step = xpoints[xpoints.length-1] - average_x;
+	makeRectangle(0, round(ypoints[ypoints.length-1])+1, width, height);
+	run("Copy");
+	Roi.move(0-x_step,round(ypoints[ypoints.length-1])+1);
+	run("Paste");
+	
+	run("Select None");
+	
+}
