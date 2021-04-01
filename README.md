@@ -9,7 +9,7 @@ If it shows as single point, right click and select multi point ![image](https:/
 
 • Try to be consistent (eg, always clicking the middle, or top corner, etc).
 galways selecting middle bottom or top corner for example: 
-![image](https://user-images.githubusercontent.com/74852180/113346400-a7c97d80-92e8-11eb-9007-4583d88e0a39.png)
+![image](https://user-images.githubusercontent.com/74852180/113346400-a7c97d80-92e8-11eb-9007-4583d88e0a39.png) or 
 ![image](https://user-images.githubusercontent.com/74852180/113346488-c16ac500-92e8-11eb-87d0-950f9a34f2e2.png)
 
 
