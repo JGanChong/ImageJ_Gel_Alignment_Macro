@@ -23,6 +23,21 @@ Example of macro:
 Before (with points selected):
 ![image](https://user-images.githubusercontent.com/74852180/113346702-0c84d800-92e9-11eb-87d4-27c9a40d53cf.png)
 
-AFter running macro:
+After running macro:
 ![image](https://user-images.githubusercontent.com/74852180/113346734-173f6d00-92e9-11eb-86af-71ecb661c5af.png)
+
+
+Before Horizontal Alignment:
+![image](https://user-images.githubusercontent.com/74852180/113349421-de08fc00-92ec-11eb-9658-d8d597f8b9d3.png)
+
+After Horizontal Alignment:
+![image](https://user-images.githubusercontent.com/74852180/113349438-e7926400-92ec-11eb-8b45-47cf4e5aa0f1.png)
+
+Before Vertical Alignment:
+![image](https://user-images.githubusercontent.com/74852180/113349514-085ab980-92ed-11eb-8dff-6489b9db45dd.png)
+
+After Vertical Alignment:
+![image](https://user-images.githubusercontent.com/74852180/113349540-114b8b00-92ed-11eb-8732-aa2b6653bf31.png)
+
+
 
